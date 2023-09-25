@@ -42,52 +42,53 @@ const Table = () => {
 
   return (
     <>
-      <Card className="h-full w-full overflow-y-scroll flex justify-center">
-        <table className="w-full min-w-max table-auto text-left">
-          <thead>
-            <tr>
-              {TABLE_HEAD.map((head) => (
-                <th key={head} className="border-b border-blue-gray-100 p-4">
-                  <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="font-normal leading-none opacity-70"
-                  >
-                    {head}
-                  </Typography>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map(({ Username, Score, RNo }, index) => (
-              <tr key={index}>
-                <td className="p-4">
-                  <Typography variant="small" color="blue-gray" className="font-normal">
-                    {/* Ranking System */}
-                    {(page - 1) * itemsPerPage + index + 1}
-                  </Typography>
-                </td>
-                <td className="p-4">
-                  <Typography variant="small" className="font-normal">
-                    {Username}
-                  </Typography>
-                </td>
-                <td className="p-4">
-                  <Typography variant="small" color="blue-gray" className="font-normal">
-                    {Score || ' '}
-                  </Typography>
-                </td>
-                <td className="p-4">
-                  <Typography variant="small" color="blue-gray" className="font-normal">
-                    {RNo || ' '}
-                  </Typography>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </Card>
+  <Card className="h-full w-full overflow-x-auto overflow-y-scroll">
+  <div className="min-w-full">
+    <table className="w-full table-auto text-left">
+      <thead>
+        <tr>
+          {TABLE_HEAD.map((head) => (
+            <th key={head} className="border-b border-blue-gray-100 p-4">
+              <Typography
+                variant="small"
+                color="blue-gray"
+                className="font-normal leading-none opacity-70"
+              >
+                {head}
+              </Typography>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {data.map(({ Username, Score, RNo }, index) => (
+          <tr key={index}>
+            <td className="p-4">
+              <Typography variant="small" color="blue-gray" className="font-normal">
+                {(page - 1) * itemsPerPage + index + 1}
+              </Typography>
+            </td>
+            <td className="p-4">
+              <Typography variant="small" className="font-normal">
+                {Username}
+              </Typography>
+            </td>
+            <td className="p-4">
+              <Typography variant="small" color="blue-gray" className="font-normal">
+                {Score || ' '}
+              </Typography>
+            </td>
+            <td className="p-4">
+              <Typography variant="small" color="blue-gray" className="font-normal">
+                {RNo || ' '}
+              </Typography>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Card>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Stack spacing={2}>
           <Pagination
