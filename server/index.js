@@ -1,9 +1,10 @@
-const express = require('express')
+import express from "express"
+import cors from "cors";
+import dotenv from "dotenv";
+import { connectDb } from './db';
+import { getData } from './routes/getData';
+
 const app = express();
-const cors = require('cors');
-const { connectDb } = require('./db');
-const dotenv = require('dotenv');
-const { getData } = require('./routes/getData');
 
 
 app.use(cors());
